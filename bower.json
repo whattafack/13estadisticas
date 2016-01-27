@@ -1,0 +1,9 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {
+    "chartjs": "v1.0.1-beta.2",
+    "gridster": "~0.5.6",
+    "jquery": "~2.2.0"
+  }
+}

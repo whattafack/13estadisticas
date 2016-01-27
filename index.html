@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Estadisticas - El Trece TV</title>
+        <script src="bower_components/chartjs/Chart.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/gridster/dist/jquery.gridster.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="bower_components/gridster/dist/jquery.gridster.min.css">
+    </head>
+    <body>
+        <h1>El Trece TV - Estadísticas.</h1>
+        <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="3" data-sizey="2">
+                    <div id="chart">
+                        <canvas id="canvas" width="750" height="350"></canvas>
+                    </div>
+                    <p>Usuarios registrados por día en el último mes.</p>
+                </li>
+                <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+                    <div id="chart2">
+                        <canvas id="canvas2" width="200" height="200"></canvas>
+                    </div>
+                    <p>Descripción.</p>
+                </li>
+
+                <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+                    <div id="chart3">
+                        <canvas id="canvas3" width="200" height="200"></canvas>
+                    </div>
+                    <p>Descripción.</p>
+                </li>
+                <!-- -->
+                <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+                    <div id="chart4">
+                        <canvas id="canvas4" width="200" height="200"></canvas>
+                    </div>
+                    <p>Descripción.</p>
+                </li>
+                <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+                    <div id="chart5">
+                        <canvas id="canvas5" width="200" height="200"></canvas>
+                    </div>
+                    <p>Descripción.</p>
+                </li>
+
+                <li data-row="3" data-col="2" data-sizex="3" data-sizey="2">
+                    <div id="chart3">
+                        <canvas id="canvas6" width="750" height="350"></canvas>
+                    </div>
+                    <p>Descripción.</p>
+                </li>
+            </ul>
+        </div>
+    <script>
+        var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+        var pieChartData = [
+            {
+                value: 300,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Red"
+            },
+            {
+                value: 50,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Green"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Yellow"
+            }
+        ];
+
+        var lineChartData = {
+            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+            datasets : [
+                {
+                    label: "Usuarios registrados por dia",
+                    fillColor : "rgba(220,220,220,0.2)",
+                    strokeColor : "blue",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(220,220,220,1)",
+                    data : ["616","637","452","521","546","484","471","4061","2938","1392","599","603","873","1069","1255","1275","3768","3847","1212","368","1548","1682","578","270","225","346","339","715","533","509","296"]
+                }
+            ]
+
+        }
+
+        var barChartData = {
+            labels : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"],
+            datasets : [
+                {
+                    label: "Usuarios registrados por dia",
+                    fillColor : "rgba(220,220,220,0.2)",
+                    strokeColor : "yellow",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(220,220,220,1)",
+                    data : ["616","637","452","521","546","484","471","4061","2938","1392","599","603","873","1069","1255","1275","3768","3847","1212","368","1548","1682","578","270","225","346","339","715","533","509","296"]
+                }
+            ]
+
+        }
+
+        var radarChartData = {
+            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+            datasets : [
+                {
+                    label: "Usuarios registrados por dia",
+                    fillColor : "rgba(220,220,220,0.2)",
+                    strokeColor : "yellow",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(220,220,220,1)",
+                    data : ["616","637","452","221","546","484","471"]
+                }
+            ]
+
+        }
+        var polarChartData = [
+            {
+                value: 300,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Red"
+            },
+            {
+                value: 50,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Green"
+            },
+            {
+                value: 100,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Yellow"
+            },
+            {
+                value: 40,
+                color: "#949FB1",
+                highlight: "#A8B3C5",
+                label: "Grey"
+            },
+            {
+                value: 120,
+                color: "#4D5360",
+                highlight: "#616774",
+                label: "Dark Grey"
+            }
+
+        ];
+
+    window.onload = function(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+        var ctx2 = document.getElementById("canvas2").getContext("2d");
+        var ctx3 = document.getElementById("canvas3").getContext("2d");
+        var ctx4 = document.getElementById("canvas4").getContext("2d");
+        var ctx5 = document.getElementById("canvas5").getContext("2d");
+        var ctx6 = document.getElementById("canvas6").getContext("2d");
+
+        var myLine = new Chart(ctx).Line(lineChartData, {
+            //responsive: true,
+            scaleFontColor: "blue"
+        });
+        var pieChart = new Chart(ctx2).Pie(pieChartData, {
+            //responsive: true
+        });
+        var pieChart2 = new Chart(ctx3).Doughnut(pieChartData, {
+            //responsive: true
+        });
+
+        var myRadarChart = new Chart(ctx4).Radar(radarChartData, {
+            //responsive: true,
+            pointLabelFontColor : "white"
+        });
+
+        var polarChart = new Chart(ctx5).PolarArea(polarChartData, {
+            //responsive: true,
+            scaleFontColor: "blue"
+        });
+
+        var myBarChart = new Chart(ctx6).Bar(barChartData,{
+            //responsive: true,
+            scaleFontColor: "white"
+        });
+    }
+
+    $(function(){ //DOM Ready
+
+        $(".gridster ul").gridster({
+            widget_margins: [15, 15],
+            widget_base_dimensions: [300, 300],
+        });
+
+    });
+
+    </script>
+    </body>
+</html>

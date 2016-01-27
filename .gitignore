@@ -1,0 +1,26 @@
+
+# Created by https://www.gitignore.io/api/yeoman,grunt,bower
+
+### Yeoman ###
+node_modules/
+bower_components/
+*.log
+
+build/
+dist/
+
+
+### grunt ###
+# Grunt usually compiles files inside this directory
+dist/
+
+# Grunt usually preprocesses files such as coffeescript, compass... inside the .tmp directory
+.tmp/
+
+
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+

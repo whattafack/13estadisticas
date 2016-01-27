@@ -1,0 +1,24 @@
+body {
+    background: #222;
+    font-family: 'Open Sans', Helvetica, arial, sans-serif;
+}
+
+h1 {
+    color: white;
+}
+
+li {
+    border-radius: 10px;
+    list-style: none;
+    padding: 5px;
+    background: #FF9618;
+    text-align: center;
+}
+
+li:nth-child(even) {
+    background: #9C4274;
+}
+
+canvas {
+    margin: 10%;
+}
